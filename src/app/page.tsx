@@ -2,6 +2,15 @@
 import styles from "./page.module.css";
 import { useState, useEffect} from 'react'
 
+type Ticket = {
+    id: number,
+    customer: string,
+    ticket: number,
+    subject: string,
+    status: string,
+}
+
+
 export default function Home() {
     const [tickets, setTickets] = useState([])
     const statusOptions = ['weitergeleitet', 'initial weitergeleitet', 'in Arbeit', 'erledigt'];
@@ -11,9 +20,9 @@ export default function Home() {
             .then((data) => setTickets(data))
             .catch((err) => console.error('Error while loading tickets:', err));
     }, []);
-    const handleStatusChange = (id, newStatus) => {
+    const handleStatusChange = (id:any, newStatus:any):void => {
         // refresh tickets local
-        const updatedTickets = tickets.map((ticket) =>
+        const updatedTickets:Ticket[] = tickets.map((ticket:Ticket) =>
             ticket.id === id ? { ...ticket, status: newStatus } : ticket
         );
         setTickets(updatedTickets);
@@ -44,7 +53,7 @@ export default function Home() {
                 </tr>
                 </thead>
                 <tbody className={styles.tbody}>
-                {tickets.map((ticket) => (
+                {tickets.map((ticket:Ticket) => (
                     <tr key={ticket.id}>
                         <td>{ticket.customer}</td>
                         <td>{ticket.ticket}</td>

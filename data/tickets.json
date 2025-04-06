@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "customer": "Sparkasse Hamburg",
+    "ticket": 3774345,
+    "subject": "Agenten einrichten",
+    "status": "initial weitergeleitet"
+  },
+  {
+    "id": 2,
+    "customer": "Sparkasse Stuttgart",
+    "ticket": 3749485,
+    "subject": "Servicenummer einrichten",
+    "status": "initial weitergeleitet"
+  },
+  {
+    "id": 3,
+    "customer": "Stadtsparkasse München",
+    "ticket": 3798834,
+    "subject": "Passwort ändern",
+    "status": "erledigt"
+  }
+]
