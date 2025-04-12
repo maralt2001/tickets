@@ -13,7 +13,7 @@ type Ticket = {
 
 export default function Home() {
     const [tickets, setTickets] = useState([])
-    const statusOptions = ['weitergeleitet', 'initial weitergeleitet', 'in Arbeit', 'erledigt'];
+    const statusOptions = ['in Bearbeitung','offen','geschlossen','wartend auf Kunde','erledigt'];
     useEffect(() => {
         fetch(`http://localhost:3000/api/tickets`) // Tickets von der API abrufen
             .then((res) => res.json())
