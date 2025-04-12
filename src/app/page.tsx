@@ -75,7 +75,7 @@ export default function Home() {
                         <td>{ticket.ticket}</td>
                         <td>{ticket.subject}</td>
                         <td>
-                            <select className={styles.select}
+                            <select className={styles.select} id={String(ticket.id)}
                                 value={ticket.status}
                                 onChange={(e) =>
 
