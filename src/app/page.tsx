@@ -12,12 +12,13 @@ type Ticket = {
 
 
 export default function Home() {
-    const [tickets, setTickets] = useState([])
+    const [tickets, setTickets] = useState<Ticket[]>([])
+    const [isSortedAsc, setIsSortedAsc] = useState(false);
     const statusOptions = ['in Bearbeitung','offen','geschlossen','wartend auf Kunde','erledigt'];
     useEffect(() => {
         fetch(`http://localhost:3000/api/tickets`) // Tickets von der API abrufen
             .then((res) => res.json())
-            .then((data) => setTickets(data))
+            .then((data:Ticket[]) => setTickets(data.sort((a, b) => a.ticket - b.ticket)))
             .catch((err) => console.error('Error while loading tickets:', err));
     }, []);
     const handleStatusChange = (id:any, newStatus:any):void => {
@@ -40,6 +41,15 @@ export default function Home() {
             .catch((err) => console.error('Error while loading tickets:', err));
     };
 
+    const handleSortByTicketId = (): void => {
+        const sortedTickets = [...tickets].sort((a, b) =>
+            isSortedAsc ? a.ticket - b.ticket : b.ticket - a.ticket
+        );
+        setTickets(sortedTickets);
+        setIsSortedAsc(!isSortedAsc); // Toggle Sortierrichtung
+    };
+
+
 
     return (
         <div className={styles.page}>
@@ -47,7 +57,13 @@ export default function Home() {
                 <thead className={styles.thead}>
                 <tr>
                     <th>CUSTOMER</th>
-                    <th>TICKET</th>
+                    <th
+                        onClick={handleSortByTicketId}
+                        style={{ cursor: "pointer" }}
+                    >
+                        TICKET {isSortedAsc ? "⬆️" : "⬇️"}
+                    </th>
+
                     <th>SUBJECT</th>
                     <th>STATUS</th>
                 </tr>
