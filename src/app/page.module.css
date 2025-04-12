@@ -38,6 +38,11 @@
   border-bottom: 1px solid #ddd; /* Dünne Linie zwischen Zeilen */
 }
 
+.openRow {
+  border-inline: solid mediumvioletred;
+  border-width: 5px;
+}
+
 /* Alternierende Zeilenfarben */
 .tbody tr:nth-child(even) {
   background-color: #f9f9f9; /* Helles Grau für gerade Zeilen */

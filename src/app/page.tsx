@@ -70,7 +70,7 @@ export default function Home() {
                 </thead>
                 <tbody className={styles.tbody}>
                 {tickets.map((ticket:Ticket) => (
-                    <tr key={ticket.id}>
+                    <tr key={ticket.id} className={ticket.status === 'offen'? styles.openRow : ''}>
                         <td>{ticket.customer}</td>
                         <td>{ticket.ticket}</td>
                         <td>{ticket.subject}</td>
