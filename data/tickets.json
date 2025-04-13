@@ -4,7 +4,7 @@
     "customer": "TechNova GmbH",
     "ticket": 1000456,
     "subject": "Systemintegration prüfen",
-    "status": "offen"
+    "status": "geschlossen"
   },
   {
     "id": 2,
@@ -25,7 +25,7 @@
     "customer": "MediHealth GmbH",
     "ticket": 1000578,
     "subject": "Kundendaten aktualisieren",
-    "status": "offen"
+    "status": "in Bearbeitung"
   },
   {
     "id": 5,
@@ -53,7 +53,7 @@
     "customer": "NextGen Studios",
     "ticket": 1000698,
     "subject": "Passwort ändern",
-    "status": "offen"
+    "status": "in Bearbeitung"
   },
   {
     "id": 9,
