@@ -16,15 +16,9 @@ export default function Home() {
     const [isSortedAsc, setIsSortedAsc] = useState(false);
     const statusOptions = ['in Bearbeitung','offen','geschlossen','wartend auf Kunde','erledigt'];
     const [loading, setLoading] = useState(true);
-    let url = '';
+    const API_URL = process.env.DOCKER_HOST || 'http://localhost:3000';
     useEffect(() => {
-        if (process.env.DOCKER_HOST != undefined) {
-            url = process.env.DOCKER_HOST;
-        }
-        else {
-            url = 'http://localhost:3000';
-        }
-        fetch(`${url}/api/tickets`) // Tickets von der API abrufen
+        fetch(`${API_URL}/api/tickets`) // Tickets von der API abrufen
             .then((res) => res.json())
             .then((data:Ticket[]) => {
                 setTickets(data.sort((a, b) => a.ticket - b.ticket));
@@ -43,7 +37,7 @@ export default function Home() {
         setTickets(updatedTickets);
 
         // update tickets
-        fetch(`${url}/api/tickets/${id}`, {
+        fetch(`${API_URL}/api/tickets/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ status: newStatus }),

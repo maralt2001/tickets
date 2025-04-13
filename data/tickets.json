@@ -11,7 +11,7 @@
     "customer": "GreenFuture AG",
     "ticket": 1000498,
     "subject": "Zugangsdaten senden",
-    "status": "in Bearbeitung"
+    "status": "offen"
   },
   {
     "id": 3,
@@ -60,7 +60,7 @@
     "customer": "BrightFinance AG",
     "ticket": 1000721,
     "subject": "Nachrichtensystem testen",
-    "status": "in Bearbeitung"
+    "status": "offen"
   },
   {
     "id": 10,
