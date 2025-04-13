@@ -68,7 +68,7 @@ export default function Home() {
                     <th>STATUS</th>
                 </tr>
                 </thead>
-                <tbody className={styles.tbody}>
+                <tbody className={`${styles.tbody} "table-body"`}>
                 {tickets.map((ticket:Ticket) => (
                     <tr key={ticket.id} className={ticket.status === 'offen'? styles.openRow : ''}>
                         <td>{ticket.customer}</td>
