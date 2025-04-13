@@ -15,11 +15,18 @@ export default function Home() {
     const [tickets, setTickets] = useState<Ticket[]>([])
     const [isSortedAsc, setIsSortedAsc] = useState(false);
     const statusOptions = ['in Bearbeitung','offen','geschlossen','wartend auf Kunde','erledigt'];
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch(`http://localhost:3000/api/tickets`) // Tickets von der API abrufen
             .then((res) => res.json())
-            .then((data:Ticket[]) => setTickets(data.sort((a, b) => a.ticket - b.ticket)))
-            .catch((err) => console.error('Error while loading tickets:', err));
+            .then((data:Ticket[]) => {
+                setTickets(data.sort((a, b) => a.ticket - b.ticket));
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error('Error while loading tickets:', err)
+                setLoading(false);
+            })
     }, []);
     const handleStatusChange = (id:any, newStatus:any):void => {
         // refresh tickets local
@@ -53,6 +60,9 @@ export default function Home() {
 
     return (
         <div className={styles.page}>
+            {loading? (
+                <p>Loading Tickets...</p>
+            ):(
             <table className={styles.table}>
                 <thead className={styles.thead}>
                 <tr>
@@ -94,7 +104,7 @@ export default function Home() {
 
                 </tbody>
             </table>
-
+            )}
         </div>
     );
 }
