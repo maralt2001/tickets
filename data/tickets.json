@@ -11,7 +11,7 @@
     "customer": "GreenFuture AG",
     "ticket": 1000498,
     "subject": "Zugangsdaten senden",
-    "status": "offen"
+    "status": "geschlossen"
   },
   {
     "id": 3,
@@ -25,7 +25,7 @@
     "customer": "MediHealth GmbH",
     "ticket": 1000578,
     "subject": "Kundendaten aktualisieren",
-    "status": "in Bearbeitung"
+    "status": "wartend auf Kunde"
   },
   {
     "id": 5,
@@ -39,7 +39,7 @@
     "customer": "EcoPower Solutions",
     "ticket": 1000623,
     "subject": "Kontaktdaten validieren",
-    "status": "offen"
+    "status": "erledigt"
   },
   {
     "id": 7,

@@ -1,13 +1,16 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 
 
-export function GET() {
+export async function GET() {
 
-    let data = fs.readFileSync(path.join(process.cwd(),'data','tickets.json'), 'utf8');
+    let data = await fs.readFile(path.join(process.cwd(),'data','tickets.json'), 'utf8');
     return new Response(data, {
         status: 200,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        },
     });
 }
 
