@@ -12,9 +12,12 @@ type Ticket = {
     status: string,
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
 async function fetchTickets(): Promise<Ticket[]> {
     try {
-        const response = await fetch(`http://127.0.0.1:3000/api/tickets`, { cache: "no-store" });
+
+        const response = await fetch(`${API_URL}/api/tickets`, { cache: "no-store" });
         if (!response.ok) {
             new Error("Failed to fetch tickets");
             return []
@@ -38,7 +41,7 @@ export default async function Home() {
             {tickets.length === 0 ? (
                 <p>No Tickets found. Error while loading</p>
             ) : (
-                <TicketTableClient initialTickets={tickets} statusOptions={statusOptions} apiUrl={'http://127.0.0.1:3000'} />
+                <TicketTableClient initialTickets={tickets} statusOptions={statusOptions} apiUrl={`${API_URL}`} />
             )}
         </div>
 
