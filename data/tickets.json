@@ -11,14 +11,14 @@
     "customer": "GreenFuture AG",
     "ticket": 1000498,
     "subject": "Zugangsdaten senden",
-    "status": "geschlossen"
+    "status": "in Bearbeitung"
   },
   {
     "id": 3,
     "customer": "LogiTrans Logistics",
     "ticket": 1000542,
     "subject": "Systemupdate erforderlich",
-    "status": "in Bearbeitung"
+    "status": "wartend auf Kunde"
   },
   {
     "id": 4,
@@ -32,7 +32,7 @@
     "customer": "BlueOcean Ltd.",
     "ticket": 1000604,
     "subject": "Fehleranalyse durchführen",
-    "status": "in Bearbeitung"
+    "status": "wartend auf Kunde"
   },
   {
     "id": 6,
@@ -46,14 +46,14 @@
     "customer": "SmartBuild Inc.",
     "ticket": 1000657,
     "subject": "Benutzerrollen definieren",
-    "status": "geschlossen"
+    "status": "offen"
   },
   {
     "id": 8,
     "customer": "NextGen Studios",
     "ticket": 1000698,
     "subject": "Passwort ändern",
-    "status": "in Bearbeitung"
+    "status": "wartend auf Kunde"
   },
   {
     "id": 9,

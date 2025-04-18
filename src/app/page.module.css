@@ -82,7 +82,22 @@
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Hervorgehobene Umrandung */
 }
 
+.loading {
+  text-align: center;
+  animation: loading 1.2s infinite ease-in-out;
+}
 
+@keyframes loading {
+  0% {
+    color: white;
+  }
+  50% {
+    color: darkcyan;
+  }
+  100% {
+    color: white;
+  }
+}
 
 
 

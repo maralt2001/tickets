@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import {useState} from "react";
 import styles from "./page.module.css";
 
 type Ticket = {
@@ -21,15 +21,15 @@ export default function TicketTableClient({ initialTickets, statusOptions, apiUr
     const [tickets, setTickets] = useState<Ticket[]>(initialTickets);
     const [isSortedAsc, setIsSortedAsc] = useState(false);
 
-    // Funktion zum Ändern des Status eines Tickets
+    // change ticket status
     const handleStatusChange = async (id: number, newStatus: string): Promise<void> => {
-        // Lokale Tickets aktualisieren
+        // update tickets local
         const updatedTickets = tickets.map((ticket) =>
             ticket.id === id ? { ...ticket, status: newStatus } : ticket
         );
         setTickets(updatedTickets);
 
-        // Änderungen an den Server senden
+        // send update to server
         try {
             const response = await fetch(`${apiUrl}/api/tickets/${id}`, {
                 method: "PATCH",
@@ -48,7 +48,7 @@ export default function TicketTableClient({ initialTickets, statusOptions, apiUr
         }
     };
 
-    // Funktion zur Sortierung der Tickets
+    // sort tickets by ticket number
     const handleSortByTicketId = (): void => {
         const sortedTickets = [...tickets].sort((a, b) =>
             isSortedAsc ? a.ticket - b.ticket : b.ticket - a.ticket
