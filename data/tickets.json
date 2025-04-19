@@ -4,7 +4,7 @@
     "customer": "TechNova GmbH",
     "ticket": 1000456,
     "subject": "Systemintegration prüfen",
-    "status": "offen"
+    "status": "in Bearbeitung"
   },
   {
     "id": 2,
@@ -18,55 +18,55 @@
     "customer": "LogiTrans Logistics",
     "ticket": 1000542,
     "subject": "Systemupdate erforderlich",
-    "status": "wartend auf Kunde"
+    "status": "in Bearbeitung"
   },
   {
     "id": 4,
     "customer": "MediHealth GmbH",
     "ticket": 1000578,
     "subject": "Kundendaten aktualisieren",
-    "status": "wartend auf Kunde"
+    "status": "in Bearbeitung"
   },
   {
     "id": 5,
     "customer": "BlueOcean Ltd.",
     "ticket": 1000604,
     "subject": "Fehleranalyse durchführen",
-    "status": "wartend auf Kunde"
+    "status": "in Bearbeitung"
   },
   {
     "id": 6,
     "customer": "EcoPower Solutions",
     "ticket": 1000623,
     "subject": "Kontaktdaten validieren",
-    "status": "erledigt"
+    "status": "in Bearbeitung"
   },
   {
     "id": 7,
     "customer": "SmartBuild Inc.",
     "ticket": 1000657,
     "subject": "Benutzerrollen definieren",
-    "status": "offen"
+    "status": "in Bearbeitung"
   },
   {
     "id": 8,
     "customer": "NextGen Studios",
     "ticket": 1000698,
     "subject": "Passwort ändern",
-    "status": "wartend auf Kunde"
+    "status": "in Bearbeitung"
   },
   {
     "id": 9,
     "customer": "BrightFinance AG",
     "ticket": 1000721,
     "subject": "Nachrichtensystem testen",
-    "status": "offen"
+    "status": "in Bearbeitung"
   },
   {
     "id": 10,
     "customer": "Skyline Foods",
     "ticket": 1000754,
     "subject": "Neue Zertifikate einrichten",
-    "status": "geschlossen"
+    "status": "erledigt"
   }
 ]
