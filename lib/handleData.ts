@@ -24,9 +24,7 @@ export async function updateTickets(id:string, status:string):Promise<Ticket> {
     const ticketStatus = status;
     const tickets:Ticket[] = await fetchTickets();
     const ticketIndex = tickets.findIndex((ticket:Ticket) => ticket.id === ticketId);
-    if (ticketIndex === -1) {
-        return;
-    }
+
     tickets[ticketIndex].status = ticketStatus;
     await fs.writeFile(path.join(process.cwd(),'data','tickets.json'), JSON.stringify(tickets, null, 2));
     return tickets[ticketIndex]

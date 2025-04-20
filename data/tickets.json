@@ -4,21 +4,21 @@
     "customer": "TechNova GmbH",
     "ticket": 1000456,
     "subject": "Systemintegration prüfen",
-    "status": "in Bearbeitung"
+    "status": "offen"
   },
   {
     "id": 2,
     "customer": "GreenFuture AG",
     "ticket": 1000498,
     "subject": "Zugangsdaten senden",
-    "status": "in Bearbeitung"
+    "status": "offen"
   },
   {
     "id": 3,
     "customer": "LogiTrans Logistics",
     "ticket": 1000542,
     "subject": "Systemupdate erforderlich",
-    "status": "in Bearbeitung"
+    "status": "offen"
   },
   {
     "id": 4,

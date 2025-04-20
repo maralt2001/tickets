@@ -1,0 +1,64 @@
+.root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.button {
+  background: linear-gradient(135deg, #2176ff, #3358cc); /* Moderner Farbverlauf */
+  border: none;
+  color: white;
+  padding: 18px 36px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px; /* Eleganter Übergang an den Ecken */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); /* Tiefe geben */
+  transition: all 0.3s ease; /* Weiche Animationen */
+
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #286eff, #3d63cc); /* Hellerer grüner Verlauf beim Hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.12); /* Tieferer Schatten */
+  transform: scale(1.06); /* Größerer Hover-Effekt */
+}
+
+.button:active {
+  background: linear-gradient(135deg, #1d4eb7, #2b3d99); /* Noch dunklerer Blauton beim Drücken */
+  transform: scale(0.98); /* Leichte Verkleinerung bei Klick */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* Reduzierter Schatten */
+}
+
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(33, 118, 255, 0.6); /* Fokuslicht in passendem Dunkelblau */
+}
+
+
+.button a {
+  color: white; /* Weiß für Linktext */
+  text-decoration: none; /* Keine Unterstreichung */
+}
+
+
+
+
+
+
+
+

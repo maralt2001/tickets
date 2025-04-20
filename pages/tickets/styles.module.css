@@ -1,0 +1,92 @@
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+.table {
+    width: 100%; /* Tabelle nimmt die gesamte Breite des Containers ein */
+    border-collapse: collapse; /* Entferne doppelte Rahmen */
+    margin: 20px 0; /* Abstand zur Umgebung */
+    font-size: 16px; /* Schriftgröße */
+    font-family: Arial, sans-serif; /* Lesbare Schriftart */
+    text-align: left; /* Textlinks ausrichten */
+    border: 1px solid #ddd; /* Umrandung der Tabelle */
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Schatten für modernen Effekt */
+}
+
+/* Tabellen-Header */
+.thead th {
+    background-color: #007bff; /* Hellblauer Header-Hintergrund */
+    color: #fff; /* Weiße Schrift in Header */
+    padding: 12px 15px; /* Abstände innerhalb der Header-Zellen */
+    font-weight: bold; /* Fette Schrift */
+}
+
+.tbody td {
+    padding: 10px 15px; /* Abstände innerhalb der Zellen */
+    border-bottom: 1px solid #ddd; /* Dünne Linie zwischen Zeilen */
+}
+
+.openRow {
+    border-inline: solid mediumvioletred;
+    border-width: 5px;
+}
+
+/* Alternierende Zeilenfarben */
+.tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Helles Grau für gerade Zeilen */
+}
+
+.tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* Weiß für ungerade Zeilen */
+}
+
+/* Hover Effekt für Tabellenreihen */
+.tbody tr:hover {
+    background-color: #f1f7ff; /* Hellblau für Hover (Highlight) */
+}
+
+.select {
+    width: 200px; /* Breite des Dropdowns */
+    padding: 8px; /* Innenabstand */
+    border: 1px solid #ddd; /* Hellgraue Rahmenfarbe */
+    border-radius: 5px; /* Sanft abgerundete Ecken */
+    background-color: #f9f9f9; /* Dezentes Hintergrundgrau */
+    font-size: 14px; /* Angepasste Schriftgröße */
+    color: #333; /* Schriftfarbe */
+    appearance: none; /* Entfernt das Standard-Browser-Styling */
+    cursor: pointer; /* Zeiger für interaktive Elemente */
+    transition: all 0.3s ease; /* Glatte Übergänge bei Veränderungen */
+}
+
+/* Dropdown-Zustände */
+.select:hover {
+    border-color: #aaa; /* Farbe des Rahmens bei Hover */
+    background-color: #fff; /* Hintergrundfarbe bei Hover */
+}
+
+.select:focus {
+    outline: none; /* Entfernt den Standard-Umriss */
+    border-color: #007bff; /* Blaue Rahmenfarbe beim Fokus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Hervorgehobene Umrandung */
+}
+
+.loading {
+    text-align: center;
+    animation: loading 1.2s infinite ease-in-out;
+}
+
+@keyframes loading {
+    0% {
+        color: white;
+    }
+    50% {
+        color: darkcyan;
+    }
+    100% {
+        color: white;
+    }
+}

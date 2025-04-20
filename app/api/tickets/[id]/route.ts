@@ -1,5 +1,5 @@
 import { NextRequest} from 'next/server';
-import {updateTickets} from "../../../../../lib/handleData";
+import {updateTickets} from "../../../../lib/handleData";
 
 export async function PATCH(request:NextRequest,{ params }: { params: Promise<{ id: string }>}) {
 

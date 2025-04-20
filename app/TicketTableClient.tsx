@@ -1,7 +1,7 @@
-'use client';
+'use client'
 
 import {useState} from "react";
-import styles from "./page.module.css";
+import styles from "../pages/tickets/styles.module.css";
 
 type Ticket = {
     id: number;

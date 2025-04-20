@@ -5,7 +5,7 @@ import puppeteer from "puppeteer";
   const page = await browser.newPage();
 
   // Navigate to your webpage
-  await page.goto("http://localhost:3000", {
+  await page.goto("http://localhost:3000/tickets", {
     waitUntil: "networkidle2",
   });
 
@@ -28,11 +28,13 @@ import puppeteer from "puppeteer";
         if (!selectedOption || selectedOption.textContent.trim() !== 'offen') return null;
 
         return {
-          rowIndex: index
+          rowIndex: index,
+          ticketId: index  // Row index will be used to calculate ticket ID
         };
       })
       .filter(info => info !== null);
   });
+
   console.log(`Found ${rowsWithOpenStatus.length} rows with status "offen"`);
 
   let updatedCount = 0;
@@ -50,6 +52,7 @@ import puppeteer from "puppeteer";
       await page.waitForSelector(rowSelector);
 
       // Find the value of the "in Bearbeitung" option
+
       const optionInfo = await page.$eval(rowSelector, (select) => {
         const options = Array.from(select.options);
         const targetOption = options.find(opt => opt.textContent.trim() === "in Bearbeitung");
@@ -69,8 +72,6 @@ import puppeteer from "puppeteer";
           select.dispatchEvent(new Event('change', { bubbles: true }));
         }, rowSelector, optionInfo.value);
 
-
-
         updatedCount++;
       }
     } catch (error) {
@@ -79,6 +80,8 @@ import puppeteer from "puppeteer";
   }
 
   console.log(`Updated ${updatedCount} select elements from "offen" to "in Bearbeitung"`);
+  // Take a screenshot to verify
+  await page.screenshot({ path: "select-updated.png" });
 
   // Close the browser
   await browser.close();
