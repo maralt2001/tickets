@@ -66,11 +66,24 @@ import puppeteer from "puppeteer";
         console.log(`Updating ticket ${ticketId -1} status to "in Bearbeitung" (value: ${optionInfo.value})`);
 
         // First, update the select value and dispatch the change event
-        await page.evaluate((selector, value) => {
-          const select = document.querySelector(selector);
-          select.value = value;
-          select.dispatchEvent(new Event('change', { bubbles: true }));
-        }, rowSelector, optionInfo.value);
+        const url = `http://localhost:3000/api/tickets/${ticketId - 1}`;
+        const requestBody = {
+          status: `${optionInfo.value}`,
+        };
+
+        const response = await page.evaluate(async (apiUrl, body) => {
+          const fetchResponse = await fetch(apiUrl, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+          });
+          return await fetchResponse.json();
+        }, url, requestBody);
+
+        console.log('Response from Server:', response);
+
 
         updatedCount++;
       }
@@ -81,7 +94,7 @@ import puppeteer from "puppeteer";
 
   console.log(`Updated ${updatedCount} select elements from "offen" to "in Bearbeitung"`);
   // Take a screenshot to verify
-  await page.screenshot({ path: "select-updated.png" });
+  //await page.screenshot({ path: "select-updated.png" });
 
   // Close the browser
   await browser.close();

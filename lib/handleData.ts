@@ -1,5 +1,6 @@
-import fs from "fs/promises";
-import path from "path";
+import sql from 'better-sqlite3'
+
+const db = sql('lib/tickets.db');
 
 type Ticket = {
     id: number,
@@ -10,9 +11,9 @@ type Ticket = {
 }
 export async function fetchTickets(): Promise<Ticket[]> {
     try {
-        const readTickets = await fs.readFile(path.join(process.cwd(),'data','tickets.json'), 'utf8');
-        const tickets: Ticket[] = JSON.parse(readTickets);
-        return tickets.sort((a, b) => a.ticket - b.ticket);
+        const readTickets = db.prepare('SELECT * FROM tickets').all();
+        const tickets = JSON.stringify(readTickets, null, 2);
+        return JSON.parse(tickets).sort((a: { ticket: number; }, b: { ticket: number; }) => a.ticket - b.ticket);//return tickets.sort((a, b) => a.ticket - b.ticket);
     } catch (error) {
         console.error("Error read tickets:", error);
         return [];
@@ -22,10 +23,9 @@ export async function fetchTickets(): Promise<Ticket[]> {
 export async function updateTickets(id:string, status:string):Promise<Ticket> {
     const ticketId = parseInt(id,10 );
     const ticketStatus = status;
-    const tickets:Ticket[] = await fetchTickets();
-    const ticketIndex = tickets.findIndex((ticket:Ticket) => ticket.id === ticketId);
-
-    tickets[ticketIndex].status = ticketStatus;
-    await fs.writeFile(path.join(process.cwd(),'data','tickets.json'), JSON.stringify(tickets, null, 2));
-    return tickets[ticketIndex]
+    const statement = db.prepare(`UPDATE tickets SET status = ? WHERE id = ?`);
+    statement.run(ticketStatus, ticketId);
+    const readTicket = db.prepare(`SELECT * FROM tickets WHERE id = ${ticketId}`).get();
+    const ticket = JSON.stringify(readTicket, null, 2);
+    return JSON.parse(ticket);
 }
